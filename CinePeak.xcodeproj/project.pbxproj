@@ -12,6 +12,8 @@
 		4356247A2B8976070004F529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435624792B8976070004F529 /* Assets.xcassets */; };
 		4356247E2B8976070004F529 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4356247D2B8976070004F529 /* Preview Assets.xcassets */; };
 		435624882B8976070004F529 /* CinePeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435624872B8976070004F529 /* CinePeakTests.swift */; };
+		43A379322B8A27000090BC7B /* NetworkKit in Resources */ = {isa = PBXBuildFile; fileRef = 43A379312B8A27000090BC7B /* NetworkKit */; };
+		43A379352B8A276D0090BC7B /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 43A379342B8A276D0090BC7B /* NetworkKit */; };
 		43A9840F2B89870F0093E0E3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 43A9840E2B89870F0093E0E3 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,7 @@
 		4356247D2B8976070004F529 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		435624832B8976070004F529 /* CinePeakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinePeakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		435624872B8976070004F529 /* CinePeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinePeakTests.swift; sourceTree = "<group>"; };
+		43A379312B8A27000090BC7B /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkKit; sourceTree = "<group>"; };
 		43A9840C2B8985E00093E0E3 /* Environment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Environment.xcconfig; sourceTree = "<group>"; };
 		43A9840E2B89870F0093E0E3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		43A984102B898B8D0093E0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A379352B8A276D0090BC7B /* NetworkKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +66,9 @@
 			children = (
 				435624742B8976050004F529 /* CinePeak */,
 				435624862B8976070004F529 /* CinePeakTests */,
+				43A379302B8A26A60090BC7B /* Packages */,
 				435624732B8976050004F529 /* Products */,
+				43A379332B8A276D0090BC7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,10 +84,9 @@
 		435624742B8976050004F529 /* CinePeak */ = {
 			isa = PBXGroup;
 			children = (
-				43A9840C2B8985E00093E0E3 /* Environment.xcconfig */,
-				435624752B8976050004F529 /* CinePeakApp.swift */,
-				435624772B8976050004F529 /* ContentView.swift */,
 				43A984092B8983340093E0E3 /* Resources */,
+				43A379362B8A286F0090BC7B /* Scenes */,
+				435624752B8976050004F529 /* CinePeakApp.swift */,
 			);
 			path = CinePeak;
 			sourceTree = "<group>";
@@ -94,13 +99,37 @@
 			path = CinePeakTests;
 			sourceTree = "<group>";
 		};
+		43A379302B8A26A60090BC7B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				43A379312B8A27000090BC7B /* NetworkKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		43A379332B8A276D0090BC7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43A379362B8A286F0090BC7B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				435624772B8976050004F529 /* ContentView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		43A984092B8983340093E0E3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				43A9840A2B8985760093E0E3 /* Assets */,
-				43A9840D2B8986C20093E0E3 /* Localization */,
 				4356247B2B8976070004F529 /* CinePeak.entitlements */,
+				43A9840C2B8985E00093E0E3 /* Environment.xcconfig */,
 				43A984102B898B8D0093E0E3 /* Info.plist */,
+				43A9840D2B8986C20093E0E3 /* Localization */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -146,6 +175,9 @@
 			dependencies = (
 			);
 			name = CinePeak;
+			packageProductDependencies = (
+				43A379342B8A276D0090BC7B /* NetworkKit */,
+			);
 			productName = CinePeak;
 			productReference = 435624722B8976050004F529 /* CinePeak.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A379322B8A27000090BC7B /* NetworkKit in Resources */,
 				4356247E2B8976070004F529 /* Preview Assets.xcassets in Resources */,
 				4356247A2B8976070004F529 /* Assets.xcassets in Resources */,
 				43A9840F2B89870F0093E0E3 /* Localizable.xcstrings in Resources */,
@@ -532,6 +565,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		43A379342B8A276D0090BC7B /* NetworkKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4356246A2B8976050004F529 /* Project object */;
 }

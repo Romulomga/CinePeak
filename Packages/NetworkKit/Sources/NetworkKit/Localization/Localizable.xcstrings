@@ -1,0 +1,36 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Bad request." : {
+
+    },
+    "HTTP url response cast failed." : {
+
+    },
+    "Network request failed." : {
+
+    },
+    "Parameter serialization failed." : {
+
+    },
+    "Parameters were nil." : {
+
+    },
+    "Response returned with no data to decode." : {
+
+    },
+    "The url you requested is outdated." : {
+
+    },
+    "URL is nil." : {
+
+    },
+    "We could not decode the response." : {
+
+    },
+    "You need to be authenticated first." : {
+
+    }
+  },
+  "version" : "1.0"
+}

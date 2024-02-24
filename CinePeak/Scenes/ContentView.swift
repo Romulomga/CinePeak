@@ -1,4 +1,5 @@
 import SwiftUI
+import NetworkKit
 
 struct ContentView: View {
     var body: some View {
