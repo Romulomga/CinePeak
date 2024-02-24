@@ -1,7 +1,10 @@
 import SwiftUI
 import NetworkKit
 
-struct ContentView: View {
+struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListViewModelProtocol>: View {
+    let coordinator: AppCoordinator
+    @StateObject var viewModel: ViewModel
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -32,5 +35,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    PopularMoviesListView(coordinator: AppCoordinator(), viewModel: PopularMoviesListViewModel())
 }

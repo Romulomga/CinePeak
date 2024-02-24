@@ -4,7 +4,8 @@ import SwiftUI
 struct CinePeakApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let coordinator = AppCoordinator()
+            coordinator.start()
         }
     }
 }
