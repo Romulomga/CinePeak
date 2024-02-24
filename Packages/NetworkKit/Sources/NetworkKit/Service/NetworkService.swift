@@ -1,20 +1,20 @@
 import Foundation
 
 public typealias ResultWithError<Model> = Result<Model, Error>
-public typealias NetworkServiceCompletion<Model: Decodable> = (ResultWithError<Model>) -> Void
+public typealias NetworkServiceCompletion<Model: Codable> = (ResultWithError<Model>) -> Void
 
 public protocol NetworkServiceProtocol: AnyObject {
     associatedtype EndPoint: EndPointType
     
-    func request<Model: Decodable>(_ route: EndPoint, completion: @escaping NetworkServiceCompletion<Model>)
-    func request<Model: Codable>(_ route: EndPoint) async throws -> ResultWithError<Model>
+    func request<Model: Decodable>(ofType: Model.Type, _ route: EndPoint, completion: @escaping NetworkServiceCompletion<Model>)
+    func request<Model: Decodable>(ofType: Model.Type, _ route: EndPoint) async throws -> ResultWithError<Model>
 }
 
 private extension NetworkServiceProtocol {
     
     func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(
-            url: route.baseURL.appendingPathComponent(route.path),
+            url: route.baseURL.appendingPathComponent(route.version).appendingPathComponent(route.path),
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
             timeoutInterval: 10.0
         )
@@ -55,12 +55,12 @@ public final class NetworkService<EndPoint: EndPointType>: NetworkServiceProtoco
         self.session = session
     }
     
-    public func request<Model: Decodable>(_ route: EndPoint, completion: @escaping NetworkServiceCompletion<Model>) {
+    public func request<Model: Decodable>(ofType: Model.Type, _ route: EndPoint, completion: @escaping NetworkServiceCompletion<Model>) {
         
         do {
             let request = try buildRequest(from: route)
             let task = session.dataTask(with: request) { data, response, error in
-                let mappedResponse: ResultWithError<Model> = ReponseHandler.handle(data, response, error)
+                let mappedResponse: ResultWithError<Model> = ResponseHandler.handle(data, response, error)
                 DispatchQueue.main.async {
                     completion(mappedResponse)
                 }
@@ -73,11 +73,11 @@ public final class NetworkService<EndPoint: EndPointType>: NetworkServiceProtoco
         }
     }
     
-    public func request<Model: Codable>(_ route: EndPoint) async throws -> ResultWithError<Model> {
+    public func request<Model: Decodable>(ofType: Model.Type, _ route: EndPoint) async throws -> ResultWithError<Model> {
         do {
             let request = try buildRequest(from: route)
             let (data, response) = try await session.data(for: request)
-            let mappedResponse: ResultWithError<Model> = ReponseHandler.handle(data, response)
+            let mappedResponse: ResultWithError<Model> = ResponseHandler.handle(data, response)
             
             return mappedResponse
             

@@ -15,6 +15,10 @@
 		43A379322B8A27000090BC7B /* NetworkKit in Resources */ = {isa = PBXBuildFile; fileRef = 43A379312B8A27000090BC7B /* NetworkKit */; };
 		43A379352B8A276D0090BC7B /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 43A379342B8A276D0090BC7B /* NetworkKit */; };
 		43A9840F2B89870F0093E0E3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 43A9840E2B89870F0093E0E3 /* Localizable.xcstrings */; };
+		43EDAC4E2B8A3A6700D2EF44 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EDAC4D2B8A3A6700D2EF44 /* Environment.swift */; };
+		43EDAC522B8A47C500D2EF44 /* MoviesDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EDAC512B8A47C500D2EF44 /* MoviesDBApi.swift */; };
+		43EDAC542B8A4B5B00D2EF44 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EDAC532B8A4B5B00D2EF44 /* Movie.swift */; };
+		43EDAC562B8A4C3A00D2EF44 /* PaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EDAC552B8A4C3A00D2EF44 /* PaginatedResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +41,13 @@
 		435624832B8976070004F529 /* CinePeakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinePeakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		435624872B8976070004F529 /* CinePeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinePeakTests.swift; sourceTree = "<group>"; };
 		43A379312B8A27000090BC7B /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkKit; sourceTree = "<group>"; };
-		43A9840C2B8985E00093E0E3 /* Environment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Environment.xcconfig; sourceTree = "<group>"; };
+		43A9840C2B8985E00093E0E3 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		43A9840E2B89870F0093E0E3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		43A984102B898B8D0093E0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43EDAC4D2B8A3A6700D2EF44 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		43EDAC512B8A47C500D2EF44 /* MoviesDBApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDBApi.swift; sourceTree = "<group>"; };
+		43EDAC532B8A4B5B00D2EF44 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		43EDAC552B8A4C3A00D2EF44 /* PaginatedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +92,10 @@
 		435624742B8976050004F529 /* CinePeak */ = {
 			isa = PBXGroup;
 			children = (
+				43EDAC4F2B8A478C00D2EF44 /* Network */,
 				43A984092B8983340093E0E3 /* Resources */,
 				43A379362B8A286F0090BC7B /* Scenes */,
+				43EDAC4C2B8A3A1D00D2EF44 /* Utils */,
 				435624752B8976050004F529 /* CinePeakApp.swift */,
 			);
 			path = CinePeak;
@@ -127,7 +137,7 @@
 			children = (
 				43A9840A2B8985760093E0E3 /* Assets */,
 				4356247B2B8976070004F529 /* CinePeak.entitlements */,
-				43A9840C2B8985E00093E0E3 /* Environment.xcconfig */,
+				43A9840C2B8985E00093E0E3 /* Prod.xcconfig */,
 				43A984102B898B8D0093E0E3 /* Info.plist */,
 				43A9840D2B8986C20093E0E3 /* Localization */,
 			);
@@ -157,6 +167,32 @@
 				43A9840E2B89870F0093E0E3 /* Localizable.xcstrings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		43EDAC4C2B8A3A1D00D2EF44 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				43EDAC4D2B8A3A6700D2EF44 /* Environment.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		43EDAC4F2B8A478C00D2EF44 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				43EDAC502B8A47B800D2EF44 /* Models */,
+				43EDAC512B8A47C500D2EF44 /* MoviesDBApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		43EDAC502B8A47B800D2EF44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43EDAC532B8A4B5B00D2EF44 /* Movie.swift */,
+				43EDAC552B8A4C3A00D2EF44 /* PaginatedResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +302,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				435624782B8976050004F529 /* ContentView.swift in Sources */,
+				43EDAC4E2B8A3A6700D2EF44 /* Environment.swift in Sources */,
 				435624762B8976050004F529 /* CinePeakApp.swift in Sources */,
+				43EDAC522B8A47C500D2EF44 /* MoviesDBApi.swift in Sources */,
+				43EDAC542B8A4B5B00D2EF44 /* Movie.swift in Sources */,
+				43EDAC562B8A4C3A00D2EF44 /* PaginatedResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +331,7 @@
 /* Begin XCBuildConfiguration section */
 		435624952B8976070004F529 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43A9840C2B8985E00093E0E3 /* Environment.xcconfig */;
+			baseConfigurationReference = 43A9840C2B8985E00093E0E3 /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

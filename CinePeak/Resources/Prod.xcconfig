@@ -1,0 +1,4 @@
+API_BASE_URL = https:/$()/api.themoviedb.org/
+API_TOKEN = {YOUR_API_TOKEN_HERE}
+POSTER_BASE_PATH = https:/$()/image.tmdb.org/t/p/w500/
+BACKDROP_BASE_PATH = https:/$()/image.tmdb.org/t/p/original/

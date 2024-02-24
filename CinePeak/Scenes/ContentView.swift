@@ -3,36 +3,34 @@ import NetworkKit
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, World! \(Environment.apiBaseUrl)")
+        NavigationStack {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, World! \(Environment.apiBaseUrl)")
+
+                Button("aeee") {
+
+                    NetworkService<MoviesDBApi>().request(ofType: PaginatedResponse<Movie>.self, .getPopularMovies(page: 1)) { result in
+                        
+                        switch result {
+                            case .success(let movies):
+                                break
+                                
+                            case .failure:
+                                break
+                        }
+                    }
+                }
+            }
+            .padding()
+            .navigationTitle("Main")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
-}
-
-enum Environment {
-    enum Keys {
-        static let apiBaseUrl = "API_BASE_URL"
-    }
-    
-    private static let infoDisctionary: [String: Any] = {
-        guard let dict = Bundle.main.infoDictionary else {
-            fatalError("plist file not found")
-        }
-        return dict
-    }()
-    
-    static let apiBaseUrl: String = {
-        guard let apiKeyString = Environment.infoDisctionary[Keys.apiBaseUrl] as? String else {
-            fatalError("API Key not set in plist")
-        }
-        return apiKeyString
-    }()
 }

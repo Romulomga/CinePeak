@@ -1,18 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Hello, World!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Olá, Mundo!"
-          }
-        }
-      }
+    "aeee" : {
+
     },
     "Hello, World! %@" : {
+
+    },
+    "Main" : {
 
     }
   },

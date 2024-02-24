@@ -1,6 +1,6 @@
 import Foundation
 
-struct ReponseHandler {
+struct ResponseHandler {
     static func handle<Model: Decodable>(_ data: Data?, _ response: URLResponse?, _ error: Error? = nil) -> ResultWithError<Model> {
     
         if let error = error {
@@ -19,7 +19,7 @@ struct ReponseHandler {
                 do {
                     let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                     print(jsonData)
-                    let apiResponse = try JSONDecoder.defaultDecoder.decode(Model.self, from: responseData)
+                    let apiResponse = try JSONDecoder().decode(Model.self, from: responseData)
                     return .success(apiResponse)
                 } catch(let error) {
                     print(error)
@@ -31,7 +31,7 @@ struct ReponseHandler {
     }
 }
 
-private extension ReponseHandler {
+private extension ResponseHandler {
     static func handleResponseStatus(_ response: HTTPURLResponse) -> ResultWithError<Void> {
         switch response.statusCode {
             case 200...299: return .success(())
@@ -41,12 +41,4 @@ private extension ReponseHandler {
             default: return .failure(NetworkResponseError.failed)
         }
     }
-}
-
-extension JSONDecoder {
-    static var defaultDecoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return decoder
-    }()
 }
