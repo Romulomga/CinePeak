@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		435148B92B8BBE4D00AD6FFF /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435148B82B8BBE4D00AD6FFF /* LoadingState.swift */; };
+		435148BC2B8BBF5700AD6FFF /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435148BB2B8BBF5700AD6FFF /* MoviesRepository.swift */; };
+		435148BF2B8BE72400AD6FFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 435148BE2B8BE72400AD6FFF /* Kingfisher */; };
 		435624762B8976050004F529 /* CinePeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435624752B8976050004F529 /* CinePeakApp.swift */; };
 		435624782B8976050004F529 /* PopularMoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435624772B8976050004F529 /* PopularMoviesListView.swift */; };
 		4356247A2B8976070004F529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435624792B8976070004F529 /* Assets.xcassets */; };
@@ -36,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		435148B82B8BBE4D00AD6FFF /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		435148BB2B8BBF5700AD6FFF /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
 		435624722B8976050004F529 /* CinePeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinePeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435624752B8976050004F529 /* CinePeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinePeakApp.swift; sourceTree = "<group>"; };
 		435624772B8976050004F529 /* PopularMoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesListView.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435148BF2B8BE72400AD6FFF /* Kingfisher in Frameworks */,
 				43A379352B8A276D0090BC7B /* NetworkKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		435148BA2B8BBF4500AD6FFF /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				435148BB2B8BBF5700AD6FFF /* MoviesRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		435624692B8976050004F529 = {
 			isa = PBXGroup;
 			children = (
@@ -208,8 +222,10 @@
 		43EDAC4F2B8A478C00D2EF44 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				435148BA2B8BBF4500AD6FFF /* Repositories */,
 				43EDAC502B8A47B800D2EF44 /* Models */,
 				43EDAC512B8A47C500D2EF44 /* MoviesDBApi.swift */,
+				435148B82B8BBE4D00AD6FFF /* LoadingState.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -241,6 +257,7 @@
 			name = CinePeak;
 			packageProductDependencies = (
 				43A379342B8A276D0090BC7B /* NetworkKit */,
+				435148BE2B8BE72400AD6FFF /* Kingfisher */,
 			);
 			productName = CinePeak;
 			productReference = 435624722B8976050004F529 /* CinePeak.app */;
@@ -293,6 +310,9 @@
 				"pt-BR",
 			);
 			mainGroup = 435624692B8976050004F529;
+			packageReferences = (
+				435148BD2B8BE72400AD6FFF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 435624732B8976050004F529 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -332,6 +352,8 @@
 			files = (
 				435624782B8976050004F529 /* PopularMoviesListView.swift in Sources */,
 				43EDAC4E2B8A3A6700D2EF44 /* Environment.swift in Sources */,
+				435148B92B8BBE4D00AD6FFF /* LoadingState.swift in Sources */,
+				435148BC2B8BBF5700AD6FFF /* MoviesRepository.swift in Sources */,
 				435624762B8976050004F529 /* CinePeakApp.swift in Sources */,
 				43712E9B2B8A90360024B807 /* PopularMoviesListViewModel.swift in Sources */,
 				43EDAC522B8A47C500D2EF44 /* MoviesDBApi.swift in Sources */,
@@ -642,7 +664,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		435148BD2B8BE72400AD6FFF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		435148BE2B8BE72400AD6FFF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 435148BD2B8BE72400AD6FFF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		43A379342B8A276D0090BC7B /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkKit;

@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Erro: %@" : {
+
+    },
+    "Não há filmes para mostrar." : {
+
+    },
     "Popular" : {
       "localizations" : {
         "pt-BR" : {

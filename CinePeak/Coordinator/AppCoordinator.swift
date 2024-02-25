@@ -1,3 +1,4 @@
+import Foundation
 import SwiftUI
 
 final class AppCoordinator {
@@ -8,7 +9,7 @@ final class AppCoordinator {
     }
 
     func start() -> some View {
-        let viewModel = PopularMoviesListViewModel()
+        let viewModel = PopularMoviesListViewModel(moviesRepository: dependencies.moviesRepository)
         return PopularMoviesListView(coordinator: self, viewModel: viewModel)
     }
 

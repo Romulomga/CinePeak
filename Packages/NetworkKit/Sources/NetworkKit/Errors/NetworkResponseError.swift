@@ -9,7 +9,7 @@ public enum NetworkResponseError: Error {
     case unableToDecode
     case httpURLResponseCastFailed
     
-    var localizedDescription: String {
+    public var localizedDescription: String {
         switch self {
         case .authenticationError: return String(localized: "You need to be authenticated first.", bundle: .module)
         case .badRequest: return String(localized: "Bad request.", bundle: .module)

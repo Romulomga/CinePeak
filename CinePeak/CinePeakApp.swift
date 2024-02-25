@@ -6,6 +6,7 @@ struct CinePeakApp: App {
         WindowGroup {
             let coordinator = AppCoordinator()
             coordinator.start()
+                .preferredColorScheme(.dark)
         }
     }
 }

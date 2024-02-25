@@ -3,7 +3,7 @@ import Foundation
 struct PaginatedResponse<T: Codable>: Codable {
     let page: Int
     let results: [T]
-    let totalPages: Int?
+    let totalPages: Int
     let totalResults: Int?
 
     enum CodingKeys: String, CodingKey {

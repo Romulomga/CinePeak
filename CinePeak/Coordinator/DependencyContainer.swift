@@ -1,11 +1,6 @@
 import Foundation
+import NetworkKit
 
 final class DependencyContainer {
-//    private(set) lazy var itemRepository: ItemRepositoryProtocol = ItemRepository()
-
-//    // Exemplo de um serviço lazy
-//    private(set) lazy var itemService: ItemServiceProtocol = {
-//        let repository = self.itemRepository
-//        return ItemService(repository: repository)
-//    }()
+    private(set) lazy var moviesRepository: MoviesRepositoryProtocol = MoviesRepository(service: NetworkService<MoviesDBApi>())
 }

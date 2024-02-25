@@ -1,6 +1,6 @@
 import Foundation
 
-struct Movie: Codable {
+struct Movie: Codable, Hashable, Identifiable {
     let id: Int
     let adult: Bool?
     let genreIds: [Int]?
@@ -13,8 +13,16 @@ struct Movie: Codable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
-    let posterPath: String?
-    let backdropPath: String?
+    let posterPath: URL?
+    let backdropPath: URL?
+
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -50,14 +58,14 @@ struct Movie: Codable {
         
         let posterPathValue = try container.decodeIfPresent(String.self, forKey: .posterPath)
         if let posterPathValue {
-            posterPath = "\(Environment.posterBasePath)\(posterPathValue)"
+            posterPath = URL(string: "\(Environment.posterBasePath)\(posterPathValue)")
         } else {
             posterPath = nil
         }
         
         let backdropPathValue = try container.decodeIfPresent(String.self, forKey: .backdropPath)
         if let backdropPathValue {
-            backdropPath = "\(Environment.backdropBasePath)\(backdropPathValue)"
+            backdropPath = URL(string: "\(Environment.backdropBasePath)\(backdropPathValue)")
         } else {
             backdropPath = nil
         }
