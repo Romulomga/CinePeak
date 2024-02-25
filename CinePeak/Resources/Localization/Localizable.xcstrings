@@ -1,11 +1,25 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Erro: %@" : {
-
+    "An error occurred while loading the data." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocorreu um erro ao carregar os dados."
+          }
+        }
+      }
     },
-    "Não há filmes para mostrar." : {
-
+    "No Results Found" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem Resultados Encontrados"
+          }
+        }
+      }
     },
     "Popular" : {
       "localizations" : {
@@ -13,6 +27,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Popular"
+          }
+        }
+      }
+    },
+    "Try Again" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tentar Novamente"
+          }
+        }
+      }
+    },
+    "We couldn't find what you were looking for. Try checking your internet connection." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não conseguimos encontrar o que você procurava. Tente verificar sua conexão com a Internet."
           }
         }
       }

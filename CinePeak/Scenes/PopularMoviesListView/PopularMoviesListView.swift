@@ -16,11 +16,11 @@ struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListView
                     case .loading:
                         LoadingView()
                     case .loaded:
-                        ListView(viewModel: viewModel)
+                        EmptyView(retryAction: viewModel.refresh)
                     case .empty:
-                        EmptyView()
+                        EmptyView(retryAction: viewModel.refresh)
                     case .error(let errorMessage):
-                        ErrorView(errorMessage: errorMessage)
+                        ErrorView(errorMessage: errorMessage, retryAction: viewModel.refresh)
                 }
             }
             .background(Color.background)
@@ -36,6 +36,7 @@ struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListView
         var body: some View {
             let columns: [GridItem] = [
                 GridItem(.flexible()),
+                GridItem(.flexible()),
                 GridItem(.flexible())
             ]
             
@@ -50,7 +51,7 @@ struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListView
                                 .fade(duration: 0.25)
                                 .resizable()
                                 .scaledToFit()
-                                .cornerRadius(5.0)
+                                .cornerRadius(10.0)
                                 .scaleEffect(scales[movie.id, default: 1.0])
                                 .onTapGesture {
                                     withAnimation(.easeIn(duration: 0.25)) {
@@ -83,16 +84,61 @@ struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListView
     }
     
     struct EmptyView: View {
+        let retryAction: () -> Void
+        
         var body: some View {
-            Text("Não há filmes para mostrar.")
+            VStack(spacing: 16) {
+                Image(systemName: "magnifyingglass")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60, height: 60)
+                    .foregroundColor(Color.onBackground)
+                Text("No Results Found")
+                    .font(.title)
+                    .foregroundColor(Color.onBackground)
+                Text("We couldn't find what you were looking for. Try checking your internet connection.")
+                    .font(.body)
+                    .foregroundColor(Color.onBackground)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                Button(action: retryAction) {
+                    Text("Try Again")
+                        .bold()
+                        .font(.body)
+                        .padding()
+                        .background(Color.accentColor)
+                        .foregroundColor(Color.onAccent)
+                        .cornerRadius(10)
+                }
+            }
         }
     }
     
     struct ErrorView: View {
         var errorMessage: String
+        let retryAction: () -> Void
         
         var body: some View {
-            Text("Erro: \(errorMessage)")
+            VStack(spacing: 16) {
+                Image(systemName: "exclamationmark.triangle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60, height: 60)
+                    .foregroundColor(.red)
+                Text("An error occurred while loading the data.")
+                    .fontWeight(.semibold)
+                    .font(.body)
+                    .foregroundColor(Color.onBackground)
+                Button(action: retryAction) {
+                    Text("Try Again")
+                        .bold()
+                        .font(.body)
+                        .padding()
+                        .background(Color.accentColor)
+                        .foregroundColor(Color.onAccent)
+                        .cornerRadius(10)
+                }
+            }
         }
     }
 }
