@@ -16,7 +16,7 @@ struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListView
                     case .loading:
                         LoadingView()
                     case .loaded:
-                        EmptyView(retryAction: viewModel.refresh)
+                        ListView(viewModel: viewModel)
                     case .empty:
                         EmptyView(retryAction: viewModel.refresh)
                     case .error(let errorMessage):
