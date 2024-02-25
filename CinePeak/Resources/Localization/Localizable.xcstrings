@@ -1,14 +1,15 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "aeee" : {
-
-    },
-    "Hello, World! %@" : {
-
-    },
-    "Main" : {
-
+    "Popular" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popular"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
