@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="https://github.com/Romulomga/CinePeak/assets/23625196/e3f9d0f0-1009-4054-8b79-423ee6d5fed9" alt="Screenshot 1" width="200" />
+  <img src="https://github.com/Romulomga/CinePeak/assets/23625196/a9f32a3f-e5a0-408f-9645-48de17573852" alt="Screenshot 2" width="200" />
+  <img src="https://github.com/Romulomga/CinePeak/assets/23625196/cafaba99-5764-40b4-8820-3a9fd88cc34d" alt="Screenshot 3" width="200" />
+</div>
 
 # CinePeak
 
