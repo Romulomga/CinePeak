@@ -13,9 +13,14 @@ CinePeak is an iOS application developed in Swift, focusing on providing up-to-d
 - **Popular Movies Listing**: Discover a list of the most popular movies.
 - **Movie Details**: Access detailed information about each movie, including synopsis, ratings, and more.
 
+## Localization
+
+- CinePeak is designed to reach both English and Portuguese-speaking audiences, offering localized content to enhance user experience. This approach helps in catering to users from different linguistic backgrounds.
+
 ## Architecture
 
-- The project follows the **MVVM (Model-View-ViewModel) architecture** with the use of **Coordinators** for navigation, ensuring a clean separation of concerns and improved testability.
+- The project follows the MVVM (Model-View-ViewModel) architecture with the use of Coordinators for navigation.
+- Dependency Injection: Implemented in the Coordinator to manage dependencies efficiently.
 
 ## Technologies Used
 
