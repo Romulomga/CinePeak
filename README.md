@@ -35,7 +35,7 @@ Before building the project, you must obtain an `API_TOKEN` from [The Movie Data
 ## Minimum Requirements
 
 - **iOS Target**: iOS 16.0 or later.
-- **Xcode Version**: Xcode 14.0 or later.
+- **Xcode Version**: Xcode 15.2 or later.
 
 ## Testing
 
