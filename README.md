@@ -26,7 +26,7 @@ CinePeak is an iOS application developed in Swift, focusing on providing up-to-d
 
 - **Swift**: A powerful and intuitive programming language for iOS development.
 - **Kingfisher**: A versatile library for downloading and caching images from the web.
-- **NetworkKit**: A custom Swift package developed by the author, handling network operations efficiently.
+- **[NetworkKit](https://github.com/Romulomga/NetworkKit)**: A custom Swift package developed by the author, handling network operations efficiently.
 
 ## Installation
 
