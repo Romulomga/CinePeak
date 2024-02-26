@@ -8,7 +8,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let originalTitle: String?
     let overview: String
     let popularity: Double?
-    let releaseDate: Date
+    let releaseDate: Date?
     let title: String
     let video: Bool?
     let voteAverage: Double
@@ -50,11 +50,20 @@ struct Movie: Codable, Hashable, Identifiable {
         originalTitle = try container.decodeIfPresent(String.self, forKey: .originalTitle)
         overview = try container.decode(String.self, forKey: .overview)
         popularity = try container.decodeIfPresent(Double.self, forKey: .popularity)
-        releaseDate = try container.decode(Date.self, forKey: .releaseDate)
         title = try container.decode(String.self, forKey: .title)
         video = try container.decodeIfPresent(Bool.self, forKey: .video)
         voteAverage = try container.decode(Double.self, forKey: .voteAverage)
         voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount)
+        
+        let releaseDateValue = try container.decodeIfPresent(String.self, forKey: .releaseDate)
+        
+        if let releaseDateValue {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            releaseDate = formatter.date(from: releaseDateValue)
+        } else {
+            releaseDate = nil
+        }
         
         let posterPathValue = try container.decodeIfPresent(String.self, forKey: .posterPath)
         if let posterPathValue {
@@ -71,7 +80,10 @@ struct Movie: Codable, Hashable, Identifiable {
         }
     }
     
-    func formatterYear() -> String {
+    func formatterYear() -> String? {
+        guard let releaseDate else {
+            return nil
+        }
         let calendar = Calendar.current
         let yearComponent = calendar.component(.year, from: releaseDate)
         return String(format: "%d", yearComponent)

@@ -38,6 +38,7 @@ struct MovieDetailsView<ViewModel: ObservableObject & MovieDetailsViewModelProto
                             .font(.callout)
                             .foregroundColor(Color.onBackground)
                             .multilineTextAlignment(.center)
+                            .lineLimit(8)
                             .truncationMode(.tail)
                         
                         HStack(spacing: 8) {
@@ -73,8 +74,8 @@ struct MovieDetailsView<ViewModel: ObservableObject & MovieDetailsViewModelProto
                         }
                         
                         HStack(spacing: 4) {
-                            Text("\(viewModel.movie.originalLanguage.uppercased())")
-                            Text("• \(viewModel.movie.formatterYear())")
+                            Text("\(viewModel.movie.originalLanguage.uppercased())• ")
+                            Text("\(viewModel.movie.formatterYear() ?? "")")
                             Text("🍅")
                             Text("\(String(format: "%0.1f", viewModel.movie.voteAverage))")
 
