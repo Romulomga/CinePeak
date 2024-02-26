@@ -20,10 +20,10 @@
 		43712E962B8A8DA60024B807 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43712E952B8A8DA60024B807 /* AppCoordinator.swift */; };
 		43712E982B8A8DB20024B807 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43712E972B8A8DB20024B807 /* DependencyContainer.swift */; };
 		43712E9B2B8A90360024B807 /* PopularMoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43712E9A2B8A90360024B807 /* PopularMoviesListViewModel.swift */; };
-		43A379322B8A27000090BC7B /* NetworkKit in Resources */ = {isa = PBXBuildFile; fileRef = 43A379312B8A27000090BC7B /* NetworkKit */; };
 		43A379352B8A276D0090BC7B /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 43A379342B8A276D0090BC7B /* NetworkKit */; };
 		43A9840F2B89870F0093E0E3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 43A9840E2B89870F0093E0E3 /* Localizable.xcstrings */; };
 		43B320E12B8B012D00659A37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43B320E02B8B012D00659A37 /* LaunchScreen.storyboard */; };
+		43EB4E632B8CD8F000DF8230 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 43EB4E622B8CD8F000DF8230 /* NetworkKit */; };
 		43EDAC4E2B8A3A6700D2EF44 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EDAC4D2B8A3A6700D2EF44 /* Environment.swift */; };
 		43EDAC522B8A47C500D2EF44 /* MoviesDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EDAC512B8A47C500D2EF44 /* MoviesDBApi.swift */; };
 		43EDAC542B8A4B5B00D2EF44 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EDAC532B8A4B5B00D2EF44 /* Movie.swift */; };
@@ -56,7 +56,6 @@
 		43712E952B8A8DA60024B807 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		43712E972B8A8DB20024B807 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		43712E9A2B8A90360024B807 /* PopularMoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesListViewModel.swift; sourceTree = "<group>"; };
-		43A379312B8A27000090BC7B /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkKit; sourceTree = "<group>"; };
 		43A9840C2B8985E00093E0E3 /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		43A9840E2B89870F0093E0E3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		43A984102B898B8D0093E0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43EB4E632B8CD8F000DF8230 /* NetworkKit in Frameworks */,
 				435148BF2B8BE72400AD6FFF /* Kingfisher in Frameworks */,
 				43A379352B8A276D0090BC7B /* NetworkKit in Frameworks */,
 			);
@@ -109,7 +109,6 @@
 			children = (
 				435624742B8976050004F529 /* CinePeak */,
 				435624862B8976070004F529 /* CinePeakTests */,
-				43A379302B8A26A60090BC7B /* Packages */,
 				435624732B8976050004F529 /* Products */,
 				43A379332B8A276D0090BC7B /* Frameworks */,
 			);
@@ -161,14 +160,6 @@
 				43712E9A2B8A90360024B807 /* PopularMoviesListViewModel.swift */,
 			);
 			path = PopularMoviesListView;
-			sourceTree = "<group>";
-		};
-		43A379302B8A26A60090BC7B /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				43A379312B8A27000090BC7B /* NetworkKit */,
-			);
-			path = Packages;
 			sourceTree = "<group>";
 		};
 		43A379332B8A276D0090BC7B /* Frameworks */ = {
@@ -272,6 +263,7 @@
 			packageProductDependencies = (
 				43A379342B8A276D0090BC7B /* NetworkKit */,
 				435148BE2B8BE72400AD6FFF /* Kingfisher */,
+				43EB4E622B8CD8F000DF8230 /* NetworkKit */,
 			);
 			productName = CinePeak;
 			productReference = 435624722B8976050004F529 /* CinePeak.app */;
@@ -326,6 +318,7 @@
 			mainGroup = 435624692B8976050004F529;
 			packageReferences = (
 				435148BD2B8BE72400AD6FFF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				43EB4E612B8CD8F000DF8230 /* XCRemoteSwiftPackageReference "NetworkKit" */,
 			);
 			productRefGroup = 435624732B8976050004F529 /* Products */;
 			projectDirPath = "";
@@ -342,7 +335,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43A379322B8A27000090BC7B /* NetworkKit in Resources */,
 				4356247E2B8976070004F529 /* Preview Assets.xcassets in Resources */,
 				4356247A2B8976070004F529 /* Assets.xcassets in Resources */,
 				43B320E12B8B012D00659A37 /* LaunchScreen.storyboard in Resources */,
@@ -689,6 +681,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		43EB4E612B8CD8F000DF8230 /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Romulomga/NetworkKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -699,6 +699,11 @@
 		};
 		43A379342B8A276D0090BC7B /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = NetworkKit;
+		};
+		43EB4E622B8CD8F000DF8230 /* NetworkKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43EB4E612B8CD8F000DF8230 /* XCRemoteSwiftPackageReference "NetworkKit" */;
 			productName = NetworkKit;
 		};
 /* End XCSwiftPackageProductDependency section */
