@@ -1,37 +1,41 @@
 import SwiftUI
+import NetworkKit
 import Kingfisher
 
 struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListViewModelProtocol>: View {
     let coordinator: AppCoordinator
     @StateObject var viewModel: ViewModel
     
+    @State private var isModalPresented = false
+
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color
-                    .background
-                    .ignoresSafeArea()
-                
-                switch viewModel.viewState {
-                    case .loading:
-                        LoadingView()
-                    case .loaded:
-                        ListView(viewModel: viewModel)
-                    case .empty:
-                        EmptyView(retryAction: viewModel.refresh)
-                    case .error(let errorMessage):
-                        ErrorView(errorMessage: errorMessage, retryAction: viewModel.refresh)
-                }
+        ZStack {
+            Color
+                .background
+                .ignoresSafeArea()
+            
+            switch viewModel.viewState {
+                case .loading:
+                    LoadingView()
+                case .loaded:
+                    ListView(viewModel: viewModel, coordinator: coordinator)
+                case .empty:
+                    EmptyView(retryAction: viewModel.refresh)
+                case .error(let errorMessage):
+                    ErrorView(errorMessage: errorMessage, retryAction: viewModel.refresh)
             }
-            .background(Color.background)
-            .navigationTitle("Popular")
-            .navigationBarTitleDisplayMode(.automatic)
+        }
+        .background(Color.background)
+        .navigationTitle("Popular")
+        .navigationBarTitleDisplayMode(.automatic)
+        .navigationDestination(for: AppCoordinator.Destination.self) { destination in
+            coordinator.view(for: destination)
         }
     }
     
     struct ListView: View {
         @StateObject var viewModel: ViewModel
-        @State private var scales = [Int: CGFloat]()
+        let coordinator: AppCoordinator
         
         var body: some View {
             let columns: [GridItem] = [
@@ -52,14 +56,8 @@ struct PopularMoviesListView<ViewModel: ObservableObject & PopularMoviesListView
                                 .resizable()
                                 .scaledToFit()
                                 .cornerRadius(10.0)
-                                .scaleEffect(scales[movie.id, default: 1.0])
                                 .onTapGesture {
-                                    withAnimation(.easeIn(duration: 0.25)) {
-                                        scales[movie.id] = 0.8
-                                    }
-                                    withAnimation(.easeOut(duration: 0.25).delay(0.1)) {
-                                        scales[movie.id] = 1.0
-                                    }
+                                    coordinator.navigate(to: .movieDetailsView(movie: movie), asModal: true)
                                 }
                                 .onAppear() {
                                     viewModel.loadMoreContent(currentItem: movie)

@@ -1,6 +1,15 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
+    "• %@" : {
+
+    },
+    "🍅" : {
+
+    },
     "An error occurred while loading the data." : {
       "localizations" : {
         "pt-BR" : {
@@ -31,12 +40,32 @@
         }
       }
     },
+    "TRAILER" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TRAILER"
+          }
+        }
+      }
+    },
     "Try Again" : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tentar Novamente"
+          }
+        }
+      }
+    },
+    "WATCH MOVIE" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ASSISTIR FILME"
           }
         }
       }

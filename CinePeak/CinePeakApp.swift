@@ -2,11 +2,19 @@ import SwiftUI
 
 @main
 struct CinePeakApp: App {
+    @ObservedObject var coordinator = AppCoordinator()
+    
     var body: some Scene {
         WindowGroup {
-            let coordinator = AppCoordinator()
-            coordinator.start()
-                .preferredColorScheme(.dark)
+            NavigationStack(path: $coordinator.navigationPath) {
+                coordinator.view(for: .moviesList)
+                    .preferredColorScheme(.dark)
+            }
+            .sheet(isPresented: $coordinator.isModalPresented) {
+                if let modalDestination = coordinator.modalDestination {
+                    coordinator.view(for: modalDestination)
+                }
+            }
         }
     }
 }

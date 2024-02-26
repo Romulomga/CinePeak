@@ -10,6 +10,8 @@
 		435148B92B8BBE4D00AD6FFF /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435148B82B8BBE4D00AD6FFF /* LoadingState.swift */; };
 		435148BC2B8BBF5700AD6FFF /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435148BB2B8BBF5700AD6FFF /* MoviesRepository.swift */; };
 		435148BF2B8BE72400AD6FFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 435148BE2B8BE72400AD6FFF /* Kingfisher */; };
+		435148C22B8C06A000AD6FFF /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435148C12B8C06A000AD6FFF /* MovieDetailsView.swift */; };
+		435148C42B8C06AC00AD6FFF /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435148C32B8C06AC00AD6FFF /* MovieDetailsViewModel.swift */; };
 		435624762B8976050004F529 /* CinePeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435624752B8976050004F529 /* CinePeakApp.swift */; };
 		435624782B8976050004F529 /* PopularMoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435624772B8976050004F529 /* PopularMoviesListView.swift */; };
 		4356247A2B8976070004F529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435624792B8976070004F529 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		435148B82B8BBE4D00AD6FFF /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		435148BB2B8BBF5700AD6FFF /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
+		435148C12B8C06A000AD6FFF /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
+		435148C32B8C06AC00AD6FFF /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		435624722B8976050004F529 /* CinePeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinePeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435624752B8976050004F529 /* CinePeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinePeakApp.swift; sourceTree = "<group>"; };
 		435624772B8976050004F529 /* PopularMoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesListView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 				435148BB2B8BBF5700AD6FFF /* MoviesRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		435148C02B8C068E00AD6FFF /* MovieDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				435148C12B8C06A000AD6FFF /* MovieDetailsView.swift */,
+				435148C32B8C06AC00AD6FFF /* MovieDetailsViewModel.swift */,
+			);
+			path = MovieDetailsView;
 			sourceTree = "<group>";
 		};
 		435624692B8976050004F529 = {
@@ -168,6 +181,7 @@
 		43A379362B8A286F0090BC7B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				435148C02B8C068E00AD6FFF /* MovieDetailsView */,
 				43712E992B8A90280024B807 /* PopularMoviesListView */,
 			);
 			path = Scenes;
@@ -356,7 +370,9 @@
 				435148BC2B8BBF5700AD6FFF /* MoviesRepository.swift in Sources */,
 				435624762B8976050004F529 /* CinePeakApp.swift in Sources */,
 				43712E9B2B8A90360024B807 /* PopularMoviesListViewModel.swift in Sources */,
+				435148C22B8C06A000AD6FFF /* MovieDetailsView.swift in Sources */,
 				43EDAC522B8A47C500D2EF44 /* MoviesDBApi.swift in Sources */,
+				435148C42B8C06AC00AD6FFF /* MovieDetailsViewModel.swift in Sources */,
 				43EDAC542B8A4B5B00D2EF44 /* Movie.swift in Sources */,
 				43EDAC562B8A4C3A00D2EF44 /* PaginatedResponse.swift in Sources */,
 				43712E982B8A8DB20024B807 /* DependencyContainer.swift in Sources */,

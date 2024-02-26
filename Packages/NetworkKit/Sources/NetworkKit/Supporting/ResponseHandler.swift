@@ -19,7 +19,7 @@ struct ResponseHandler {
                 do {
                     let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                     print(jsonData)
-                    let apiResponse = try JSONDecoder().decode(Model.self, from: responseData)
+                    let apiResponse = try JSONDecoder.defaultDecoder.decode(Model.self, from: responseData)
                     return .success(apiResponse)
                 } catch(let error) {
                     print(error)
@@ -41,4 +41,15 @@ private extension ResponseHandler {
             default: return .failure(NetworkResponseError.failed)
         }
     }
+}
+
+extension JSONDecoder {
+    
+    static var defaultDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        return decoder
+    }()
 }

@@ -4,14 +4,14 @@ struct Movie: Codable, Hashable, Identifiable {
     let id: Int
     let adult: Bool?
     let genreIds: [Int]?
-    let originalLanguage: String?
+    let originalLanguage: String
     let originalTitle: String?
-    let overview: String?
+    let overview: String
     let popularity: Double?
-    let releaseDate: String?
-    let title: String?
+    let releaseDate: Date
+    let title: String
     let video: Bool?
-    let voteAverage: Double?
+    let voteAverage: Double
     let voteCount: Int?
     let posterPath: URL?
     let backdropPath: URL?
@@ -46,14 +46,14 @@ struct Movie: Codable, Hashable, Identifiable {
         id = try container.decode(Int.self, forKey: .id)
         adult = try container.decodeIfPresent(Bool.self, forKey: .adult)
         genreIds = try container.decodeIfPresent([Int].self, forKey: .genreIds)
-        originalLanguage = try container.decodeIfPresent(String.self, forKey: .originalLanguage)
+        originalLanguage = try container.decode(String.self, forKey: .originalLanguage)
         originalTitle = try container.decodeIfPresent(String.self, forKey: .originalTitle)
-        overview = try container.decodeIfPresent(String.self, forKey: .overview)
+        overview = try container.decode(String.self, forKey: .overview)
         popularity = try container.decodeIfPresent(Double.self, forKey: .popularity)
-        releaseDate = try container.decodeIfPresent(String.self, forKey: .releaseDate)
+        releaseDate = try container.decode(Date.self, forKey: .releaseDate)
         title = try container.decode(String.self, forKey: .title)
-        video = try container.decode(Bool.self, forKey: .video)
-        voteAverage = try container.decodeIfPresent(Double.self, forKey: .voteAverage)
+        video = try container.decodeIfPresent(Bool.self, forKey: .video)
+        voteAverage = try container.decode(Double.self, forKey: .voteAverage)
         voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount)
         
         let posterPathValue = try container.decodeIfPresent(String.self, forKey: .posterPath)
@@ -69,5 +69,11 @@ struct Movie: Codable, Hashable, Identifiable {
         } else {
             backdropPath = nil
         }
+    }
+    
+    func formatterYear() -> String {
+        let calendar = Calendar.current
+        let yearComponent = calendar.component(.year, from: releaseDate)
+        return String(format: "%d", yearComponent)
     }
 }
