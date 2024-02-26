@@ -26,7 +26,7 @@ struct MovieDetailsView<ViewModel: ObservableObject & MovieDetailsViewModelProto
                         .fill(.clear)
                         .frame(maxHeight: 500)
                         .overlay(.ultraThinMaterial)
-                        .blur(radius: 40)
+                        .blur(radius: 8)
                         .offset(y: 80)
                     
                     VStack(spacing: 16) {

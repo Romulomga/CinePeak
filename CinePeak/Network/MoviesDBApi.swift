@@ -13,6 +13,13 @@ extension MoviesDBApi: EndPointType {
         return url
     }
     
+    var preferredLanguage: String {
+        guard let preferredLanguage = Locale.preferredLanguages.first else {
+            fatalError("Missing out preferred language in MoviesDBApi")
+        }
+        return preferredLanguage
+    }
+    
     var version: String {
         switch self {
             case .getPopularMovies:
@@ -39,7 +46,7 @@ extension MoviesDBApi: EndPointType {
             case .getPopularMovies(let page):
                 return .requestParametersAndHeaders(bodyParameters: nil,
                                                     bodyEncoding: .urlEncoding,
-                                                    urlParameters: ["language": "en-US", "page": "\(page)"],
+                                                    urlParameters: ["language": preferredLanguage, "page": "\(page)"],
                                                     additionHeaders: headers)
         }
     }
